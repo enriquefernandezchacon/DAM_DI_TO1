@@ -5,11 +5,8 @@
 package app.vistas;
 
 import app.modelo.ColeccionReservas;
-import app.modelo.Reserva;
-import app.vistas.paneles.CabeceraRestaurante;
 import java.awt.Image;
 import java.awt.Toolkit;
-import java.util.List;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -18,7 +15,7 @@ import javax.swing.table.DefaultTableModel;
  */
 public class VistaPrincipal extends javax.swing.JFrame {
 
-    private ColeccionReservas reservas;
+    public ColeccionReservas reservas;
     /**
      * Creates new form VistaPrincipal
      */
@@ -69,6 +66,11 @@ public class VistaPrincipal extends javax.swing.JFrame {
         JMenuReservas.setText("Reservas");
 
         jMenuItemNuevaReserva.setText("Nueva Reserva...");
+        jMenuItemNuevaReserva.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItemNuevaReservaActionPerformed(evt);
+            }
+        });
         JMenuReservas.add(jMenuItemNuevaReserva);
 
         jMenuPrincipal.add(JMenuReservas);
@@ -125,6 +127,12 @@ public class VistaPrincipal extends javax.swing.JFrame {
        this.setVisible(false);
     }//GEN-LAST:event_jMenuMostrarCartaActionPerformed
 
+    private void jMenuItemNuevaReservaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemNuevaReservaActionPerformed
+        VistaNuevaReserva vistaNuevaReserva = new VistaNuevaReserva(this);
+        vistaNuevaReserva.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_jMenuItemNuevaReservaActionPerformed
+
  
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -140,7 +148,7 @@ public class VistaPrincipal extends javax.swing.JFrame {
     private javax.swing.JTable jTableReservas;
     // End of variables declaration//GEN-END:variables
 
-    private void cargarTablaReservas() {
+    public void cargarTablaReservas() {
         DefaultTableModel dtm = new DefaultTableModel();
         dtm.setColumnIdentifiers(new String[]{"Dia","Hora","Cliente","telefono","email", "Forma de Pago"});
         
