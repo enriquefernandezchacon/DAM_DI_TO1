@@ -7,9 +7,6 @@ package app.vistas;
 import app.modelo.Cliente;
 import app.modelo.FormaPago;
 import app.modelo.Reserva;
-import app.vistas.paneles.NuevaReserva;
-import java.time.LocalDate;
-import java.time.LocalDateTime;
 import java.time.LocalTime;
 import java.time.ZoneId;
 import java.util.Date;
@@ -22,20 +19,11 @@ import javax.swing.JOptionPane;
  * @author Enrique
  */
 public class VistaNuevaReserva extends javax.swing.JFrame {
-
-    /**
-     * Creates new form VistaNuevaReserva
-     */
     
-    private VistaPrincipal padre;
+    private final VistaPrincipalReservas padre;
     
-    public VistaNuevaReserva() {
-        initComponents();
-    }
-    
-    public VistaNuevaReserva(VistaPrincipal padre) {
+    public VistaNuevaReserva(VistaPrincipalReservas padre) {
         this.padre = padre;
-        
         initComponents();
         Vector comboBoxItems=new Vector();
         comboBoxItems.add(FormaPago.METALICO);
@@ -62,6 +50,7 @@ public class VistaNuevaReserva extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jButtonReservar.setText("Reservar");
+        jButtonReservar.setToolTipText("Crear reserva");
         jButtonReservar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonReservarActionPerformed(evt);
@@ -69,6 +58,7 @@ public class VistaNuevaReserva extends javax.swing.JFrame {
         });
 
         jButtonCancelar.setText("Cancelar");
+        jButtonCancelar.setToolTipText("Volver al gestor de reservas");
         jButtonCancelar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonCancelarActionPerformed(evt);
@@ -159,11 +149,12 @@ public class VistaNuevaReserva extends javax.swing.JFrame {
             );
           
             Date fecha = (Date) panelNuevaReserva.jSpinnerFecha.getValue();
-            
+            Date horaDate = (Date) panelNuevaReserva.jSpinnerHora.getValue();
+            LocalTime hora = horaDate.toInstant().atZone(ZoneId.systemDefault()).toLocalTime();
             Reserva reserva = new Reserva(
                     cliente,
                     fecha.toInstant().atZone(ZoneId.systemDefault()).toLocalDate(),
-                    LocalDateTime.ofInstant(new Date().toInstant(),ZoneId.systemDefault()).toLocalTime(),
+                    hora,
                     (FormaPago) panelNuevaReserva.jComboBoxFormaPago.getSelectedItem());
             
             padre.reservas.anadirReserva(reserva);

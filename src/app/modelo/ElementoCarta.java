@@ -57,7 +57,7 @@ public class ElementoCarta {
     public String[] toArrayString(){
         String[] as = new String[3];
         as[0]= nombre;
-        as[1] = String.valueOf(precio);
+        as[1] = String.valueOf(precio) + "€";
         as[2] = descripcion;
         return as;
     }

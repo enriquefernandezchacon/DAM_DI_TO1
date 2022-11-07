@@ -17,7 +17,8 @@ public class GestionDeReservas {
      */
     public static void main(String[] args) {
         VistaPrincipal principal = new VistaPrincipal();
-        principal.setTitle("Restaurante de Kike");
+        principal.setTitle("Gestión Restaurante de Kike");
+        principal.setLocationRelativeTo(null);
         principal.setVisible(true);
     }
     

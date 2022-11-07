@@ -5,10 +5,8 @@
 package app.modelo;
 
 import java.time.LocalDate;
-import java.time.LocalDateTime;
 import java.time.LocalTime;
-import java.util.Date;
-import java.util.Vector;
+import java.time.format.DateTimeFormatter;
 
 /**
  *
@@ -63,8 +61,8 @@ public class Reserva {
     public String[] toArrayString() {
         //"Dia","Hora","Cliente","telefono","email", "Forma de Pago"
         String[] as = new String[6];
-        as[0]= fecha.toString();
-        as[1]= hora.toString();
+        as[0]= DateTimeFormatter.ofPattern("dd/MM/yyyy").format(fecha);
+        as[1]= DateTimeFormatter.ofPattern("HH:mm").format(hora);
         as[2]= cliente.getNombre() + " " + cliente.getApellidos();
         as[3] = cliente.getTelefono();
         as[4] = cliente.getEmail();

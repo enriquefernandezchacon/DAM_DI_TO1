@@ -7,6 +7,8 @@ package app.vistas;
 import app.modelo.Carta;
 import app.modelo.ElementoCarta;
 import java.util.List;
+import javax.swing.JLabel;
+import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -23,8 +25,6 @@ public class VistaCarta extends javax.swing.JFrame {
         this.padre = padre;
         carta = new Carta();
         anadirModelos();
-        
-        
     }
     
     private void anadirModelos(){
@@ -35,7 +35,8 @@ public class VistaCarta extends javax.swing.JFrame {
         for (var item : lista){
             dtmEnsaladas.addRow(item.toArrayString());
         }
-        jTableEnsaladas.setModel(dtmEnsaladas);
+        
+        jTableEnsaladas.setModel(dtmEnsaladas);        
         
         DefaultTableModel dtmCarnes = new DefaultTableModel();
         dtmCarnes.setColumnIdentifiers(new String[]{"Nombre","Precio","Descripcion"});
@@ -54,6 +55,12 @@ public class VistaCarta extends javax.swing.JFrame {
             dtmPescados.addRow(item.toArrayString());
         }
         jTablePescados.setModel(dtmPescados);
+        
+        DefaultTableCellRenderer centerRenderer = new DefaultTableCellRenderer();
+        centerRenderer.setHorizontalAlignment( JLabel.CENTER );
+        jTableEnsaladas.getColumnModel().getColumn(1).setCellRenderer( centerRenderer );
+        jTableCarnes.getColumnModel().getColumn(1).setCellRenderer( centerRenderer );
+        jTablePescados.getColumnModel().getColumn(1).setCellRenderer( centerRenderer );
     }
 
     /**
@@ -65,115 +72,145 @@ public class VistaCarta extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        cabeceraCarta1 = new app.vistas.paneles.CabeceraCarta();
         jTabbedPane1 = new javax.swing.JTabbedPane();
         jPanelEnsaldas = new javax.swing.JPanel();
+        jScrollPane5 = new javax.swing.JScrollPane();
         jTableEnsaladas = new javax.swing.JTable();
-        jPanelEnsaldas1 = new javax.swing.JPanel();
+        jPanelCarnes = new javax.swing.JPanel();
+        jScrollPane3 = new javax.swing.JScrollPane();
         jTableCarnes = new javax.swing.JTable();
-        jPanelEnsaldas2 = new javax.swing.JPanel();
+        jPanelPescados = new javax.swing.JPanel();
+        jScrollPane6 = new javax.swing.JScrollPane();
         jTablePescados = new javax.swing.JTable();
         jButtonVolver = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setPreferredSize(new java.awt.Dimension(800, 500));
+        setResizable(false);
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowClosing(java.awt.event.WindowEvent evt) {
+                formWindowClosing(evt);
+            }
+        });
+
+        jTabbedPane1.setToolTipText("Secciones de la carta");
+        jTabbedPane1.setMaximumSize(new java.awt.Dimension(700, 450));
+        jTabbedPane1.setMinimumSize(new java.awt.Dimension(700, 450));
+        jTabbedPane1.setPreferredSize(new java.awt.Dimension(700, 400));
 
         jTableEnsaladas.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null}
             },
             new String [] {
-
+                "Title 1", "Title 2", "Title 3"
             }
         ));
+        jTableEnsaladas.setAutoResizeMode(javax.swing.JTable.AUTO_RESIZE_ALL_COLUMNS);
+        jTableEnsaladas.setPreferredSize(new java.awt.Dimension(640, 331));
+        jScrollPane5.setViewportView(jTableEnsaladas);
 
         javax.swing.GroupLayout jPanelEnsaldasLayout = new javax.swing.GroupLayout(jPanelEnsaldas);
         jPanelEnsaldas.setLayout(jPanelEnsaldasLayout);
         jPanelEnsaldasLayout.setHorizontalGroup(
             jPanelEnsaldasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 467, Short.MAX_VALUE)
+            .addGap(0, 794, Short.MAX_VALUE)
             .addGroup(jPanelEnsaldasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jPanelEnsaldasLayout.createSequentialGroup()
-                    .addGap(0, 0, Short.MAX_VALUE)
-                    .addComponent(jTableEnsaladas, javax.swing.GroupLayout.PREFERRED_SIZE, 450, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 0, Short.MAX_VALUE)))
+                    .addContainerGap()
+                    .addComponent(jScrollPane5)))
         );
         jPanelEnsaldasLayout.setVerticalGroup(
             jPanelEnsaldasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 213, Short.MAX_VALUE)
+            .addGap(0, 369, Short.MAX_VALUE)
             .addGroup(jPanelEnsaldasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jPanelEnsaldasLayout.createSequentialGroup()
-                    .addGap(0, 0, Short.MAX_VALUE)
-                    .addComponent(jTableEnsaladas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 0, Short.MAX_VALUE)))
+                    .addContainerGap()
+                    .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
         );
 
         jTabbedPane1.addTab("ENSALADAS", jPanelEnsaldas);
 
         jTableCarnes.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null}
             },
             new String [] {
-
+                "Title 1", "Title 2", "Title 3"
             }
         ));
+        jTableCarnes.setAutoResizeMode(javax.swing.JTable.AUTO_RESIZE_ALL_COLUMNS);
+        jTableCarnes.setPreferredSize(new java.awt.Dimension(640, 331));
+        jScrollPane3.setViewportView(jTableCarnes);
 
-        javax.swing.GroupLayout jPanelEnsaldas1Layout = new javax.swing.GroupLayout(jPanelEnsaldas1);
-        jPanelEnsaldas1.setLayout(jPanelEnsaldas1Layout);
-        jPanelEnsaldas1Layout.setHorizontalGroup(
-            jPanelEnsaldas1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 467, Short.MAX_VALUE)
-            .addGroup(jPanelEnsaldas1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(jPanelEnsaldas1Layout.createSequentialGroup()
-                    .addGap(0, 0, Short.MAX_VALUE)
-                    .addComponent(jTableCarnes, javax.swing.GroupLayout.PREFERRED_SIZE, 450, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 0, Short.MAX_VALUE)))
+        javax.swing.GroupLayout jPanelCarnesLayout = new javax.swing.GroupLayout(jPanelCarnes);
+        jPanelCarnes.setLayout(jPanelCarnesLayout);
+        jPanelCarnesLayout.setHorizontalGroup(
+            jPanelCarnesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 794, Short.MAX_VALUE)
+            .addGroup(jPanelCarnesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanelCarnesLayout.createSequentialGroup()
+                    .addContainerGap()
+                    .addComponent(jScrollPane3)))
         );
-        jPanelEnsaldas1Layout.setVerticalGroup(
-            jPanelEnsaldas1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 213, Short.MAX_VALUE)
-            .addGroup(jPanelEnsaldas1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(jPanelEnsaldas1Layout.createSequentialGroup()
-                    .addGap(0, 0, Short.MAX_VALUE)
-                    .addComponent(jTableCarnes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 0, Short.MAX_VALUE)))
+        jPanelCarnesLayout.setVerticalGroup(
+            jPanelCarnesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 369, Short.MAX_VALUE)
+            .addGroup(jPanelCarnesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanelCarnesLayout.createSequentialGroup()
+                    .addContainerGap()
+                    .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
         );
 
-        jTabbedPane1.addTab("CARNES", jPanelEnsaldas1);
+        jTabbedPane1.addTab("CARNES", jPanelCarnes);
 
         jTablePescados.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null}
             },
             new String [] {
-
+                "Title 1", "Title 2", "Title 3"
             }
         ));
+        jTablePescados.setAutoResizeMode(javax.swing.JTable.AUTO_RESIZE_ALL_COLUMNS);
+        jTablePescados.setPreferredSize(new java.awt.Dimension(640, 331));
+        jScrollPane6.setViewportView(jTablePescados);
 
-        javax.swing.GroupLayout jPanelEnsaldas2Layout = new javax.swing.GroupLayout(jPanelEnsaldas2);
-        jPanelEnsaldas2.setLayout(jPanelEnsaldas2Layout);
-        jPanelEnsaldas2Layout.setHorizontalGroup(
-            jPanelEnsaldas2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 467, Short.MAX_VALUE)
-            .addGroup(jPanelEnsaldas2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(jPanelEnsaldas2Layout.createSequentialGroup()
-                    .addGap(0, 0, Short.MAX_VALUE)
-                    .addComponent(jTablePescados, javax.swing.GroupLayout.PREFERRED_SIZE, 450, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 0, Short.MAX_VALUE)))
+        javax.swing.GroupLayout jPanelPescadosLayout = new javax.swing.GroupLayout(jPanelPescados);
+        jPanelPescados.setLayout(jPanelPescadosLayout);
+        jPanelPescadosLayout.setHorizontalGroup(
+            jPanelPescadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 794, Short.MAX_VALUE)
+            .addGroup(jPanelPescadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanelPescadosLayout.createSequentialGroup()
+                    .addContainerGap()
+                    .addComponent(jScrollPane6)))
         );
-        jPanelEnsaldas2Layout.setVerticalGroup(
-            jPanelEnsaldas2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 213, Short.MAX_VALUE)
-            .addGroup(jPanelEnsaldas2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(jPanelEnsaldas2Layout.createSequentialGroup()
-                    .addGap(0, 0, Short.MAX_VALUE)
-                    .addComponent(jTablePescados, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 0, Short.MAX_VALUE)))
+        jPanelPescadosLayout.setVerticalGroup(
+            jPanelPescadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 369, Short.MAX_VALUE)
+            .addGroup(jPanelPescadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanelPescadosLayout.createSequentialGroup()
+                    .addContainerGap()
+                    .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
         );
 
-        jTabbedPane1.addTab("PESCADO", jPanelEnsaldas2);
+        jTabbedPane1.addTab("PESCADO", jPanelPescados);
 
         jButtonVolver.setText("Volver");
+        jButtonVolver.setToolTipText("Volver al menú principal");
         jButtonVolver.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonVolverActionPerformed(evt);
@@ -184,30 +221,22 @@ public class VistaCarta extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addComponent(jTabbedPane1)
-                    .addComponent(cabeceraCarta1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jTabbedPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 794, Short.MAX_VALUE)
                 .addContainerGap())
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                    .addContainerGap(203, Short.MAX_VALUE)
-                    .addComponent(jButtonVolver)
-                    .addContainerGap(204, Short.MAX_VALUE)))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(364, 364, 364)
+                .addComponent(jButtonVolver)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(cabeceraCarta1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 244, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(101, Short.MAX_VALUE))
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                    .addContainerGap(341, Short.MAX_VALUE)
-                    .addComponent(jButtonVolver, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(32, Short.MAX_VALUE)))
+                .addContainerGap()
+                .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(26, 26, 26)
+                .addComponent(jButtonVolver)
+                .addContainerGap())
         );
 
         pack();
@@ -218,12 +247,19 @@ public class VistaCarta extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_jButtonVolverActionPerformed
 
+    private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
+        padre.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_formWindowClosing
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private app.vistas.paneles.CabeceraCarta cabeceraCarta1;
     private javax.swing.JButton jButtonVolver;
+    private javax.swing.JPanel jPanelCarnes;
     private javax.swing.JPanel jPanelEnsaldas;
-    private javax.swing.JPanel jPanelEnsaldas1;
-    private javax.swing.JPanel jPanelEnsaldas2;
+    private javax.swing.JPanel jPanelPescados;
+    private javax.swing.JScrollPane jScrollPane3;
+    private javax.swing.JScrollPane jScrollPane5;
+    private javax.swing.JScrollPane jScrollPane6;
     private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JTable jTableCarnes;
     private javax.swing.JTable jTableEnsaladas;

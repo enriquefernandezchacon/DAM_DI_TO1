@@ -4,6 +4,9 @@
  */
 package app.vistas.paneles;
 
+import java.text.SimpleDateFormat;
+import javax.swing.JSpinner;
+
 /**
  *
  * @author Enrique Fernandez
@@ -15,6 +18,10 @@ public class NuevaReserva extends javax.swing.JPanel {
      */
     public NuevaReserva() {
         initComponents();
+        SimpleDateFormat model = new SimpleDateFormat("dd/MM/yy");
+        jSpinnerFecha.setEditor(new JSpinner.DateEditor(jSpinnerFecha, model.toPattern()));
+        model = new SimpleDateFormat("HH:mm");
+        jSpinnerHora.setEditor(new JSpinner.DateEditor(jSpinnerHora, model.toPattern()));
     }
 
     /**
@@ -43,6 +50,8 @@ public class NuevaReserva extends javax.swing.JPanel {
         jTFDireccion = new javax.swing.JTextField();
         jSpinnerFecha = new javax.swing.JSpinner();
         jComboBoxFormaPago = new javax.swing.JComboBox<>();
+        jLabel9 = new javax.swing.JLabel();
+        jSpinnerHora = new javax.swing.JSpinner();
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         jLabel1.setText("DATOS DE LA RESERVA");
@@ -81,6 +90,10 @@ public class NuevaReserva extends javax.swing.JPanel {
 
         jComboBoxFormaPago.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
+        jLabel9.setText("Hora:");
+
+        jSpinnerHora.setModel(new javax.swing.SpinnerDateModel());
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -106,15 +119,19 @@ public class NuevaReserva extends javax.swing.JPanel {
                                         .addComponent(jTFTelefono))
                                     .addComponent(jTFDireccion, javax.swing.GroupLayout.PREFERRED_SIZE, 266, javax.swing.GroupLayout.PREFERRED_SIZE)))
                             .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(jPanel1Layout.createSequentialGroup()
                                         .addComponent(jLabel8)
                                         .addGap(67, 67, 67)
                                         .addComponent(jSpinnerFecha, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE))
                                     .addGroup(jPanel1Layout.createSequentialGroup()
-                                        .addComponent(jLabel10)
+                                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(jLabel10)
+                                            .addComponent(jLabel9))
                                         .addGap(18, 18, 18)
-                                        .addComponent(jComboBoxFormaPago, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(jSpinnerHora, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(jComboBoxFormaPago, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE))))
                                 .addGap(0, 0, Short.MAX_VALUE))))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(85, 85, 85)
@@ -156,10 +173,14 @@ public class NuevaReserva extends javax.swing.JPanel {
                     .addComponent(jLabel8)
                     .addComponent(jSpinnerFecha, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel9)
+                    .addComponent(jSpinnerHora, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(15, 15, 15)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel10)
                     .addComponent(jComboBoxFormaPago, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(28, Short.MAX_VALUE))
+                .addContainerGap(41, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
@@ -170,7 +191,9 @@ public class NuevaReserva extends javax.swing.JPanel {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -194,8 +217,10 @@ public class NuevaReserva extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     public javax.swing.JSpinner jSpinnerFecha;
+    public javax.swing.JSpinner jSpinnerHora;
     public javax.swing.JTextField jTFApellidos;
     public javax.swing.JTextField jTFDireccion;
     public javax.swing.JTextField jTFEmail;

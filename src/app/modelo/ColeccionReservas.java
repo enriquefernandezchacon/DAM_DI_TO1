@@ -4,6 +4,9 @@
  */
 package app.modelo;
 
+import java.time.LocalDate;
+import java.time.LocalTime;
+import java.time.temporal.TemporalUnit;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -17,6 +20,10 @@ public class ColeccionReservas {
 
     public ColeccionReservas() {
         reservas = new ArrayList();
+        Cliente cliente = new Cliente("Enrique O.", "Fdez. Chacon", "Calle 1", "662665668", "enrique@enrique.com");
+        reservas.add(new Reserva(cliente, LocalDate.now(), LocalTime.now(), FormaPago.METALICO));
+        cliente = new Cliente("Cliente de ", "Prueba", "Calle 2", "655655655", "cliente@prueba.com");
+        reservas.add(new Reserva(cliente, LocalDate.now().plusDays(1), LocalTime.now().plusHours(2), FormaPago.TICKET_RESTAURANT));
     }
     
     public void anadirReserva(Reserva reserva) {
